@@ -1,0 +1,22 @@
+﻿<Window x:Class="KoloskovTrade.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KoloskovTrade"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" FontFamily="Comic Sans MS">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#FFFFCC99"></Border>
+        <Border Grid.Row="2" Background="#FFFFCC99"></Border>
+        <Image Source="res/logo.png" HorizontalAlignment="Left" Grid.Row="0"></Image>
+        <TextBlock Text="ООО Украшения" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"></TextBlock>
+        <Frame Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" ContentRendered="MainFrame_ContentRendered"></Frame>
+        <Button Name="BtnBack" Content="Назад" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="BtnBack_Click"></Button>
+    </Grid>
+</Window>

@@ -163,6 +163,16 @@
       <DependentUpon>KoloskovModel.edmx</DependentUpon>
       <LastGenOutput>KoloskovModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="resources\D034T5.jpg" />
+    <Resource Include="resources\F933T5.jpg" />
+    <Resource Include="resources\H023R8.jpg" />
+    <Resource Include="resources\H937R3.jpg" />
+    <Resource Include="resources\K478R4.jpg" />
+    <Resource Include="resources\P927R2.jpg" />
+    <Resource Include="resources\P936E4.jpg" />
+    <Resource Include="resources\S563T4.jpg" />
+    <Resource Include="resources\V483R7.jpg" />
+    <Resource Include="resources\V783T5.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="res\icon.ico" />

@@ -6,10 +6,11 @@
       xmlns:local="clr-namespace:KoloskovTrade"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="TradePage">
+      Title="TradePage" FontFamily="Comic Sans MS">
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
@@ -19,25 +20,47 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListView Name="TradeListView" Grid.Row="1" Grid.ColumnSpan="3">
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+            <TextBlock Text="Введите название для поиска" FontSize="16"/>
+            <TextBox Name="TBoxSearch" Width="200" FontSize="16" TextChanged="TBoxSearch_TextChanged"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+            <TextBlock Text="Выберите фильтрацию" FontSize="16"/>
+            <ComboBox Name="FiltrBox" Width="200" FontSize="16" SelectionChanged="FiltrBox_SelectionChanged">
+                <TextBlock Text="Все диапазоны"/>
+                <TextBlock Text="0-9,99%"/>
+                <TextBlock Text="10-14,99%"/>
+                <TextBlock Text="15% и более"/>
+            </ComboBox>
+            <TextBlock Text="   " FontSize="16"/>
+            <TextBlock Text="Выберите сортировку" FontSize="16"/>
+            <ComboBox Name="SortBox" Width="200" FontSize="16" SelectionChanged="SortBox_SelectionChanged">
+                <TextBlock>По умолчанию</TextBlock>
+                <TextBlock>По возратанию стоимости</TextBlock>
+                <TextBlock>По убыванию стоимости</TextBlock>
+            </ComboBox>
+        </StackPanel>
+
+        <ListView Name="TradeListView" Grid.Row="2" Grid.ColumnSpan="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="500"/>
+                            <ColumnDefinition Width="50"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
                         
                         <Image Width="200" Grid.RowSpan="4" Grid.Column="0" HorizontalAlignment="Center">
                             <Image.Source>
-                                <Binding Path="PhotoPath">
+                                <Binding Path="ProductPhoto">
                                     <Binding.TargetNullValue>
                                         <ImageSource>
                                             res/picture.png
@@ -46,12 +69,22 @@
                                 </Binding>
                             </Image.Source>
                         </Image>
-                        
-                        
-                        
+
+                        <TextBlock Text="{Binding ProductName}" FontSize="20" Grid.Row="0" Grid.Column="1"/>
+                        <TextBlock Text="{Binding ProductDescription}" FontSize="20" Grid.Row="1" Grid.Column="1"/>
+                        <TextBlock Text="{Binding ProductManufacturer}" FontSize="20" Grid.Row="2" Grid.Column="1"/>
+                        <TextBlock Text="{Binding ProductCost, StringFormat={}{0:0} рублей}" FontSize="20" Grid.Row="3" Grid.Column="1"/>
+                        <TextBlock Text="{Binding ProductDiscountAmount, StringFormat={}{0:0} %}" FontSize="30" Grid.RowSpan="4" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="3" Grid.ColumnSpan="3">
+            <TextBlock Name="TBCount" FontSize="20" VerticalAlignment="Center" Height="25"/>
+            <TextBlock Text=" из " VerticalAlignment="Center" FontSize="20"/>
+            <TextBlock Name="TBAllRecords" FontSize="20" VerticalAlignment="Center" Height="25"/>
+        </StackPanel>
     </Grid>
 </Page>

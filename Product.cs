@@ -11,7 +11,8 @@ namespace KoloskovTrade
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Media;
+
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -35,5 +36,20 @@ namespace KoloskovTrade
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
+
+        public SolidColorBrush FonStyle
+        {
+            get
+            {
+                if(ProductDiscountAmount > 15)
+                {
+                    return (SolidColorBrush)new BrushConverter().ConvertFromString("#7fff00");
+                }
+                else
+                {
+                    return (SolidColorBrush)new BrushConverter().ConvertFromString("White");
+                }
+            }
+        }
     }
 }

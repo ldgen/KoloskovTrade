@@ -42,14 +42,14 @@
             </ComboBox>
         </StackPanel>
 
-        <ListView Name="TradeListView" Grid.Row="2" Grid.ColumnSpan="3">
+        <ListView Name="TradeListView" Grid.Row="2" Grid.ColumnSpan="3" HorizontalContentAlignment="Stretch" VirtualizingPanel.ScrollUnit="Pixel">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Background="{Binding FonStyle}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"/>
-                            <ColumnDefinition Width="500"/>
-                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>

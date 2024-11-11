@@ -57,7 +57,7 @@
                             <RowDefinition Height="50"/>
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
-                        
+                        <Border Grid.RowSpan="4" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1"
                         <Image Width="200" Grid.RowSpan="4" Grid.Column="0" HorizontalAlignment="Center">
                             <Image.Source>
                                 <Binding Path="ProductPhoto">
